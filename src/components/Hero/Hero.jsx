@@ -7,7 +7,9 @@ import hero_image_back from "../../assets/hero_image_back.png";
 import Heart from "../../assets/heart.png";
 import Calories from "../../assets/calories.png";
 
+import { motion } from "framer-motion";
 const Hero = () => {
+  const transition = { type: "spring", duration: 3 };
   return (
     <div className="hero">
       <div className="blur hero-blur"></div>
@@ -15,7 +17,11 @@ const Hero = () => {
         <Header />
 
         <div className="the-best-ad">
-          <div></div>
+          <motion.div
+            initial={{ left: "190px" }}
+            whileInView={{ left: "8px" }}
+            transition={{ ...transition, type: "tween" }}
+          ></motion.div>
           <span>A melhor academia da cidade</span>
         </div>
 
@@ -58,22 +64,39 @@ const Hero = () => {
       <div className="right-h">
         <button className="btn">Cadastrar-se</button>
 
-        <div className="heart-rate">
+        <motion.div
+          initial={{ right: "-1rem" }}
+          whileInView={{ right: "4rem" }}
+          transition={transition}
+          className="heart-rate"
+        >
           <img src={Heart} alt="" />
           <span>Taxa batimento </span>
           <span>120 bpm</span>
-        </div>
+        </motion.div>
 
         <img src={hero_image} alt="" className="hero-image" />
-        <img src={hero_image_back} alt="" className="hero-image-back" />
+        <motion.img
+          initial={{ right: "11rem" }}
+          whileInView={{ right: "22rem" }}
+          transition={transition}
+          src={hero_image_back}
+          alt=""
+          className="hero-image-back"
+        />
 
-        <div className="calories">
+        <motion.div
+          initial={{ right: "47rem" }}
+          whileInView={{ right: "38rem" }}
+          transition={transition}
+          className="calories"
+        >
           <img src={Calories} alt="" />
           <div>
             <span>Gasto calórico</span>
             <span>220 kcal</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
