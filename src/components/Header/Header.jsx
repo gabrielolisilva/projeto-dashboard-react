@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import Logo from "../../assets/logo.png";
 import Bars from "../../assets/bars.png";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const mobile = window.innerWidth <= 768 ? true : false;
@@ -27,11 +28,57 @@ const Header = () => {
         </div>
       ) : (
         <ul className="header-menu">
-          <li onClick={() => setMenuOpened(false)}>Home</li>
-          <li onClick={() => setMenuOpened(false)}>Programas</li>
-          <li onClick={() => setMenuOpened(false)}>Porque nós</li>
-          <li onClick={() => setMenuOpened(false)}>Planos</li>
-          <li onClick={() => setMenuOpened(false)}>Testemunhos</li>
+          <li>
+            <Link
+              onClick={() => setMenuOpened(false)}
+              activeClass="active"
+              to="home"
+              span={true}
+              smooth={true}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={() => setMenuOpened(false)}
+              to="programs"
+              span={true}
+              smooth={true}
+            >
+              Programas
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={() => setMenuOpened(false)}
+              to="reasons"
+              span={true}
+              smooth={true}
+            >
+              Porque nós
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={() => setMenuOpened(false)}
+              to="plansid"
+              span={true}
+              smooth={true}
+            >
+              Planos
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={() => setMenuOpened(false)}
+              to="Testimonials"
+              span={true}
+              smooth={true}
+            >
+              Testemunhos
+            </Link>
+          </li>
         </ul>
       )}
     </div>
